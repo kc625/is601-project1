@@ -1,0 +1,12 @@
+h1 {
+    color: blue;
+    font-weight: bold;
+}
+
+body {
+    background-color: lightgray;
+}
+
+footer {
+    font-style: italic;
+}

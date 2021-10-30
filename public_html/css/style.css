@@ -3,8 +3,12 @@ h1 {
     font-weight: bold;
 }
 
+h2 {
+    color: maroon;
+}
+
 body {
-    background-color: lightgray;
+    background-color: ghostwhite;
 }
 
 footer {

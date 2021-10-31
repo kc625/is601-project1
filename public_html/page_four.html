@@ -36,20 +36,18 @@
             border: 2px solid black;
             background-color: lightgray;
         }
-        #imp {
+        #tcpIP {
         }
-        #terminal {
+        #lan {
         }
-        #arpaMap {
+        #http {
         }
-        #conference {
+        #cerf {
         }
-        #taylor {
-        }
-        #metcalfe {
+        #kahn {
             margin-top: 50px;
         }
-        #firstMessage {
+        #bernersLee {
             margin-top: 50px;
         }
         #primaryContent {
@@ -104,69 +102,58 @@
         <li><a href="page_four.html">Page Four</a></li>
     </menu>
     <hr>
-    <h1>Introducing: The ARPANET</h1>
+    <h1>The Internet As We Know It Arrives</h1>
     <br>
     <div id="rightColumn" class="floatRight">
-        <div id="taylor">
-            <img height="338" width="225" src="images/taylor.jpg" alt="Bob Taylor"/>
+        <div id="cerf">
+            <img height="300" width="225" src="images/cerf.jpg" alt="Vint Cerf"/>
         </div>
-        Bob Taylor in 2008
-        <div id="metcalfe">
-            <img height="338" width="225" src="images/metcalfe.jpg" alt="Robert Metcalfe"/>
+        Vint Cerf
+        <div id="kahn">
+            <img src="images/kahn.jpg" alt="Bob Kahn"/>
         </div>
-        Robert Metcalfe in 2009
-        <div id="firstMessage">
-            <img height="240" width="225" src="images/first_message.jpg" alt="Commemorating the first message sent on the ARPANET, location UCLA"/>
+        Bob Kahn
+        <div id="bernersLee">
+            <img src="images/berners_lee.jpg" alt="Tim Berners-Lee"/>
         </div>
-        A notice commemorating the first message sent via the ARPANET, location UCLA
+        Tim Berners-Lee
     </div>
     <article id="primaryContent">
         <hr>
-        <div id="terminal" class="iconCard">
-            <img height="167" width="250" src="images/terminal.jpg" alt="Older Computer Terminal"/>
+        <div id="lan" class="iconCard">
+            <img height="187" width="250" src="images/lan.jpg" alt="Ethernet Cables"/>
         </div>
-        <h2>Seeking Convenience, Finding Innovation</h2>
+        <h2>Networks Galore</h2>
         <p>
-            Robert Taylor (who often went by Bob) worked for ARPA in the 1960s under J.C Licklider.  There were several computers that they used at the time.  Each of these computers required its own terminal in order to use it.  This bothered Bob Taylor.  He was annoyed by the fact that every time he wanted to switch the computer he was using, he had to switch which terminal he was using as well.  He theorized that if there was a way to have the computers connected somehow, then he could use just one terminal in order to access all of them.  It was decided that in order to form the network, they would use four identical, mini-computers.  These mini-computers would all be connected with one another and accessible via one terminal.  Each mini-computer would then also be connected directly to its own main computer, which would allow the main computer access to the network.  This is the first computer network in history to be created.  This network eventually become known as the ARPANET.  The ARPANET was the precursor to the internet as we know it today.
+            After the success of ARPANET's demonstration at the ICCC, different networks began popping up all over the country.  This was especially true at large companies and college campuses.  They would often create their own Local Area Networks (LAN) to joint their computers together.  Also common were Wide Area Networks (WAN) which were capable of connecting multiple LANs together.  These were especially useful if you had say a company with buildings in multiple distant locations.  A LAN would be setup in each individual location, and a WAN would connect them together.  However, most networks were incompatible with one another, unable to communicate because they were created separately and not in the same uniform, consistent way.  If networks stayed compartmentalized like this, that would have been a major hindrance to the growth of the internet.
         </p>
         <hr>
         <br>
         <br>
         <hr>
-        <div id="imp" class="iconCard">
-            <img height="166" width="250" src="images/imp.jpg" alt="Interface Message Processor"/>
+        <div id="tcpIP" class="iconCard">
+            <img height="165" width="250" src="images/tcp_ip.jpg" alt="TCP/IP"/>
         </div>
-        <h2>If You Build it, They will Come</h2>
+        <h2>Standardizing Network Communication</h2>
         <p>
-            In 1969, the company BBN (Bolt Beranek & Newman) was contracted to build the mini-computers ARPA needed.  They became known as IMPs, with IMP standing for Interface Message Processor.  These IMPs were capable of implementing the packet-switching process needed to create a connected network.  BBN was able to build the IMPs and the ARPANET was successfully up and running.  So long as there was an IMP to connect to their main computer, it didn't matter where they were physically located, they would be able to connect into the ARPANET.  By 1971, several computers had been connected, all on the west coast.  Then Robert Metcalfe, a graduate student at MIT at the time, connected a computer to the ARPANET located at MIT.  This was the first computer to be connected not physically located in the west coast, and it showed that the network could still function at incredibly long distances.  By 1972, there was just fewer than 25 computers connected to the ARPANET, but they were located all around the United States and more were in the process of being added.  This was a huge jump from the original 4 computers that formed the network, all on the west coast.  Most of these computers were located either at military bases or university campuses.  They were initially used as a communication network for ARPA.
+            In comes Vint Cerf and Bob Kahn.  These two are often credited as being the inventors of the internet.  Together they created the TCP/IP protocol.  This was a standardized protocol for setting up networks to send and receive packets a specific way.  As long as both networks were set up using the TCP/IP protocol, we could be sure that the two networks could send and receive packets between each other to communicate.  Under TCP/IP, different networks would interconnect via a "gateway", as they dubbed it, which was another computer that ran on the necessary protocol.  In 1993, after 10 years of refinement, TCP/IP protocol was adopted as the standard for all networks.  This was a major milestone, as there was now a common network of interconnected networks.  At that time, the ARPANET was adding new nodes to its network all across the US and the sale of personal computers was exploding.
         </p>
         <hr>
         <br>
         <br>
         <hr>
-        <div id="arpaMap" class="iconCard">
-            <img height="250" width="375" src="images/arpanet_map.jpg" alt="Map of ARPANET, 1987"/>
+        <div id="http" class="iconCard">
+            <img height="185" width="300" src="images/http.jpg" alt="HTTP"/>
         </div>
         <h2>An Interconnected World</h2>
         <p>
-            Initially, there wasn't much to do on the ARPANET.  The first important application created was email.  Raymond Tomlinson was the coder and inventor of this first email system, in which he completed all the work for it during his own free time.  He was also the one who made the choice to use the @ sign to designate where to send the email.  His reasoning behind the choice was that the mail was being sent to someone that was "at" a certain computer.  He felt it was a natural fit, and it has become an iconic symbol today.  Developing what computers were capable of was a collaborative effort.  Anyone that was connected to the ARPANET was encouraged to share what information they were working on, opening it up to critiques and assistance from others.  This open collaboration helped speed up the development of the internet and computers in general.  This freedom of information-sharing was the cornerstone of what internet culture was built on, and to this day it still largely functions the same way.
-        </p>
-        <hr>
-        <br>
-        <br>
-        <hr>
-        <div id="conference" class="iconCard">
-            <img height="150" width="200" src="images/conference.jpg" alt="Generic Conference Room"/>
-        </div>
-        <h2>Time to Show Off</h2>
-        <p>
-            After all of the success that ARPA was having on their ARPANET project, they decided it was time to display how far they had come.  To do so ARPA sponsored an event, the International Conference on Computer Communications (ICCC).  It was held in October 1972 and was one of the first public demonstrations of computer networking technology and functionality.  Leading up to the ICCC, Robert Metcalfe was tasked with compiling a list of everything the ARPANET network was capable of in order to showcase this at the conference.  He spoke with everyone that had a computer connected to the ARPANET, and eventually had a list of 19 things that were able to be done on a computer connected to the network.  Some examples of these programs were email, games that could be played, interacting with an air traffic control system, and showing off symbolic representations of mathematical formulas.  The ARPANET demo was an incredible success, and it vastly accelerated the use and expansion of the ARPANET.  As more users connected, it was slowly becoming clsoer to the internet as we know it today.
+            While Vint Cerf and Bob Kahn were working on the TCP/IP protocol, Tim Berners-Lee was creating his own protocol.  Berners-Lee is the creator of HTTP and the web browser.  The "World Wide Web" is his creation.  Prior to his invention, you could easily send files and emails over the TCP/IP network, but you were unable to just type in an address and go to a server to see its web page.  Around this same time, Presidential candidate Al Gore, a senator at the time, wrote a bill that would make the ARPANET open to the public and brought it before Congress.  Gore saw the potential utility in the ARPANET and wanted it to be a base for connecting people all around the United States and the world.  The bill was signed into law, and the internet became publicly available on August 6th, 1991.  Prior to this, there were separate LANs that computers were connecting to.  After, all of these LANs were able to connect together.  The internet itself is a TCP/IP Wide Area Network.  It is a network of networks.  The "web" is HTTP, and was now allowed to connect to the internet due to Al Gore's bill that made it public.  The internet as we know it today, was thus created.
         </p>
     </article>
     <hr>
     <footer id="footer" class="clearFix">
         <p>
-            <a href="https://commons.wikimedia.org/w/index.php?curid=70845534">"File:Fediverse logo proposal.svg"</a><span> by <a href="https://commons.wikimedia.org/wiki/User:Eukombos">Eukombos</a></span> is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en?ref=ccsearch&atype=html">CC0 1.0</a> | <a href="https://www.flickr.com/photos/21881956@N05/5625208727">"IBM 3279-S3G"</a><span> by <a href="https://www.flickr.com/photos/21881956@N05">vaxomatic</a></span> is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=html">CC BY 2.0</a> | <a href="https://www.flickr.com/photos/8399025@N07/3097592728">"Bob Taylor"</a><span> by <a href="https://www.flickr.com/photos/8399025@N07">Marcin Wichary</a></span> is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=html">CC BY 2.0</a> | <a href="https://www.flickr.com/photos/10835992@N06/3598454141">"Arpanet Interface Message Processor"</a><span> by <a href="https://www.flickr.com/photos/10835992@N06">carrierdetect</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/?ref=ccsearch&atype=html">CC BY-NC-SA 2.0</a> | <a href="https://www.flickr.com/photos/8399025@N07/3363901421">"Bob Metcalfe"</a><span> by <a href="https://www.flickr.com/photos/8399025@N07">Marcin Wichary</a></span> is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=html">CC BY 2.0</a> | <a href="https://www.flickr.com/photos/8101127@N06/5105348945">"ARPANET Geographic Map, 31 October 1987"</a><span> by <a href="https://www.flickr.com/photos/8101127@N06">kvdhout</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=ccsearch&atype=html">CC BY-SA 2.0</a> | <a href="https://www.flickr.com/photos/16262447@N00/2725001687">"First Internet Message Arpanet UCLA"</a><span> by <a href="https://www.flickr.com/photos/16262447@N00">Dean Terry</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/?ref=ccsearch&atype=html">CC BY-NC-ND 2.0</a> | <a href="https://www.flickr.com/photos/45082883@N00/2545737387">"Conference computer lab"</a><span> by <a href="https://www.flickr.com/photos/45082883@N00">Travelin' Librarian</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nc/2.0/?ref=ccsearch&atype=html">CC BY-NC 2.0</a>
+            <a href="https://commons.wikimedia.org/w/index.php?curid=70845534">"File:Fediverse logo proposal.svg"</a><span> by <a href="https://commons.wikimedia.org/wiki/User:Eukombos">Eukombos</a></span> is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en?ref=ccsearch&atype=html">CC0 1.0</a> | <a href="https://www.flickr.com/photos/88548643@N00/139617711">"Lemon LAN"</a><span> by <a href="https://www.flickr.com/photos/88548643@N00">rfranklinaz</a></span> is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=html">CC BY 2.0</a> | <a href="https://www.flickr.com/photos/84856173@N00/6366727639">"Vint Cerf - Father of Internet"</a><span> by <a href="https://www.flickr.com/photos/84856173@N00">Anirudh Koul</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nc/2.0/?ref=ccsearch&atype=html">CC BY-NC 2.0</a> | <a href="https://www.flickr.com/photos/76881191@N07/13834286634">"TCP/IP"</a><span> by <a href="https://www.flickr.com/photos/76881191@N07">TETSUKARE</a></span> is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=html">CC BY 2.0</a> | <a href="https://commons.wikimedia.org/wiki/File:Bob_Kahn.jpg">Вени Марковски | Veni Markovski</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons | <a href="https://www.flickr.com/photos/126940499@N05/15240513899">"Jak udostępnić pliki przez serwer HTTP"</a><span> by <a href="https://www.flickr.com/photos/126940499@N05">download.net.pl</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nd/2.0/?ref=ccsearch&atype=html">CC BY-ND 2.0</a> | <a href="https://commons.wikimedia.org/w/index.php?curid=53878695">"File:Sir Tim Berners-Lee (cropped).jpg"</a><span> by <a href="https://www.wikidata.org/wiki/Q20202034">Paul Clarke</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0?ref=ccsearch&atype=html">CC BY-SA 4.0</a>
         </p>
     </footer>
 </div>

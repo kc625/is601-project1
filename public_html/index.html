@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>History of the Internet</title>
+    <title>Pylint Tips and OOP Glossary</title>
     <meta name="description" content="This is an example of a meta description.
     This will often show up in search results.">
 
@@ -12,7 +12,7 @@
             height: 100px;
             margin: 0;
             line-height: 100px;
-            width: 900px;
+            width: 1000px;
             text-align: right;
             padding: 0;
         }
@@ -24,36 +24,34 @@
             padding-left: 0;
         }
         #logo {
-            font-size: x-large;
+            font-size: xx-large;
         }
         #logo img {
             width: 100px;
         }
         #primaryContent {
-            width: 625px;
+            width: 1000px;
             text-align: left;
+            font-size: large;
         }
         #wrapper {
-            width: 900px;
+            width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
         #footer {
             text-align: center;
-            height: 15px;
-            line-height: 15px;
-        }
-        #mainImage {
-            text-align: center;
-        }
-        #sideImage {
-            float: right;
+            height: 20px;
+            line-height: 20px;
         }
         .clearFix {
             clear: both;
         }
         .floatLeft {
             float: left;
+        }
+        .floatRight {
+            float: right;
         }
     </style>
 
@@ -62,10 +60,10 @@
 <div id="wrapper">
     <div id="logo" class="floatLeft">
         <img src="images/fediverse_logo_proposal.svg" alt="An Interconnected World!"/>
-        The History of the Internet
+        Python For Everyone!
     </div>
     <menu id="primaryLinks">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Pylint Tips</a></li>
         <li>|</li>
         <li><a href="page_two.html">Page Two</a></li>
         <li>|</li>
@@ -74,23 +72,41 @@
         <li><a href="page_four.html">Page Four</a></li>
     </menu>
     <hr>
-    <div id="mainImage">
-        <img src="images/internet.jpg" alt="Welcome to the Internet!"/>
-    </div>
-    <hr>
-    <div id="sideImage">
-        <img height="160" width="240" src="images/telephone.jpg" alt="Rotary Phone!"/>
-    </div>
+    <h1>Pylint Tips and Tricks! Bonus: Glossary of OOP Terms</h1>
     <article id="primaryContent">
-        <h1>Where Did The Internet Come From?</h1>
+        <hr>
+        <h2>What Exactly is Pylint?</h2>
         <p>
-            If you asked the average person, I bet many would tell you that the internet is a pretty recent invention.  Seems reasonable at first, no?  After all, it is often associated with the turn of the millennium.  While Y2K and the internet certainly have connections with one another, the internet actually has a much richer and much longer history than most people realize.  In fact, the origins of the internet can actually be traced all the way back to World War II.  Also, its inception is linked much more closely to the telephone than most people know.  Continue on to Page Two to learn more!
+            When it comes to programming, linting is the checking of your code for syntactical or stylistic errors. This is typically done through an automated process with something called a lint tool (or linter). Pylint is one such lint tool that works on Python code. Pylint not only checks for errors in your code, but it also tries to enforce a certain coding standard when it comes to the stylistic and visual choices you make when writing a program. Most would argue that this is where linters have their greatest value. Sure, catching the actual errors within your program is important, but those errors would also be revealed when running or testing your programs. Following a linter's stylistic suggestions, however, can help you take the next step in becoming a better programmer. The first time that a new programmer uses Pylint to evaluate their code, they are probably going to receive several errors. And that's okay! Most of those errors will probably be related to the stylistic standard I keep mentioning, and those errors are usually easy to fix.
+        </p>
+        <h2>Common Pylint Errors (and how to fix them!)</h2>
+        <p>
+            As mentioned already, those new to using Pylint will probably run into a decent amount of errors early on. The following errors are likely to be encountered.
+        </p>
+        <h3>Final Newline Missing</h3>
+        <p>
+            If you receive the <code>missing-final-newline</code> error, then that means your program has ended on a line that contains code in it. To resolve this error, simply return to a new line at the end and leave that final line blank. The reason this blank newline is needed, is because historically some tools have had problems reading files if the last line has text on it but does not have a newline at the end. While this is not always the case for Python tools nowadays, it is still good practice to end each file with a newline.
+        </p>
+        <h3>Missing Docstring</h3>
+        <p>
+            A missing docstring error could actually appear in a couple of forms. You may get this error pertaining to one of your classes with <code>missing-class-docstring</code> or possibly one of your functions with <code>missing-function-docstring</code>. Docstrings are important. They let someone else that has never seen your program before, quickly look at your code and get instant clues to what you are trying to accomplish. If you get a missing docstring error, add one where specified, like the following. The docstring is highlighted in green:
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+            def test_function():
+                <span style="color: green">"""This is my docstring"""</span>
+                return True
+            </code>
+        </p>
+        <h2>Along Comes ARPA</h2>
+        <p>
+            ARPA, the Advanced Research Projects Agency, was created to take over research and development for the United States military.  The acronym title of ARPA was later changed to DARPA, when "Defense" was added to the beginning of the agency's name.  Before ARPA, each branch of the  military did their own separate research and development.  ARPA was created to centralize the research and development for all branches of the military.  With ARPA, the Army, Navy, Air Force, etc. could focus all of their efforts and manpower on actual combat endeavors.  It also allowed advancements to be uniform between the branches.  When the branches had compartmentalized research and development, if the Army developed a brand new, state-of-the-art bullet, it probably wouldn't be compatible with the weapons developed by the Navy.  ARPA also fixed that issue.  The first major project for ARPA, was the quest to resolve the telephone's fatal flaw inherit in the circuit-switching centers.
         </p>
     </article>
     <hr>
     <footer id="footer" class="clearFix">
         <p>
-            <a href="https://commons.wikimedia.org/w/index.php?curid=70845534">"File:Fediverse logo proposal.svg"</a><span> by <a href="https://commons.wikimedia.org/wiki/User:Eukombos">Eukombos</a></span> is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en?ref=ccsearch&atype=html">CC0 1.0</a> | <a href="https://www.flickr.com/photos/35319827@N00/508019517">"INTERNET"</a><span> by <a href="https://www.flickr.com/photos/35319827@N00">lecasio</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/?ref=ccsearch&atype=html">CC BY-NC-ND 2.0</a> | <a href="https://www.flickr.com/photos/93095839@N08/8645969039">"Telephone"</a><span> by <a href="https://www.flickr.com/photos/93095839@N08">Tim G. Photography</a></span> is licensed under <a href="https://creativecommons.org/licenses/by/2.0/?ref=ccsearch&atype=html">CC BY 2.0</a>
+            <a href="https://commons.wikimedia.org/w/index.php?curid=70845534">"File:Fediverse logo proposal.svg"</a><span> by <a href="https://commons.wikimedia.org/wiki/User:Eukombos">Eukombos</a></span> is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en?ref=ccsearch&atype=html">CC0 1.0</a>
         </p>
         <p>
             <a href="https://github.com/kc625/is601-project1">Link to GitHub Repository for this Project</a>

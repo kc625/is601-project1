@@ -5,7 +5,7 @@ h1 {
     height: 50px;
     line-height: 50px;
     border: 2px solid black;
-    background-color: lightgray;
+    background-color: gainsboro;
 }
 
 h2 {
@@ -13,7 +13,7 @@ h2 {
 }
 
 h3 {
-    color: mediumblue;
+    color: indigo;
 }
 
 body {
@@ -25,6 +25,7 @@ footer {
 }
 
 code {
-    background-color: lightgray;
-    padding: 3px;
+    background-color: gainsboro;
+    padding: 2.25px;
+    border: 0.5px solid black;
 }

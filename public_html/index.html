@@ -50,9 +50,6 @@
         .floatLeft {
             float: left;
         }
-        .floatRight {
-            float: right;
-        }
     </style>
 
 </head>
@@ -63,7 +60,7 @@
         Python For Everyone!
     </div>
     <menu id="primaryLinks">
-        <li><a href="index.html">Pylint Tips</a></li>
+        <li><a href="index.html">Pylint Tips & Tricks</a></li>
         <li>|</li>
         <li><a href="page_two.html">Page Two</a></li>
         <li>|</li>
@@ -72,7 +69,7 @@
         <li><a href="page_four.html">Page Four</a></li>
     </menu>
     <hr>
-    <h1>Pylint Tips and Tricks! Bonus: Glossary of OOP Terms</h1>
+    <h1>Pylint Tips & Tricks! Bonus: Glossary of OOP Terms</h1>
     <article id="primaryContent">
         <hr>
         <h2>What Exactly is Pylint?</h2>
@@ -81,7 +78,7 @@
         </p>
         <h2>Common Pylint Errors (and how to fix them!)</h2>
         <p>
-            As mentioned already, those new to using Pylint will probably run into a decent amount of errors early on. The following errors are likely to be encountered.
+            As mentioned already, those new to using Pylint will probably run into a decent amount of errors early on. The following errors are likely to be encountered. Here are some tips on how to fix them.
         </p>
         <h3>Final Newline Missing</h3>
         <p>
@@ -97,7 +94,48 @@
                 <span style="color: green">"""This is my docstring"""</span>
                 return True
             </code>
+        <h3>Line Too Long</h3>
+        <p>
+            Pylint gives you a <code>line-too-long</code> error if any line of your code has greater than 100 characters in it. When we are coding, we should aim to accomplish our goal as succinctly as possible. This is true for total lines of code, as well as how long each line is. You are likely to see this error in reference to a line that contains a docstring. In that case, simply shorten the description within your docstring so that it is under the recommended 100-character limit. If it is referencing a line that contains actual code, perhaps consider alternate ways of achieving the same outcome. Preferably with more, but shorter, lines of code.
         </p>
+        <h3>Unused Variable</h3>
+        <p>
+            Within the functions we create, we often have the ability to define and use variables. If we are not careful though, we may accidentally create variables that we do not actually use within the function. Consider the following block of code:
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+            def test_function():
+                """This is my docstring"""
+                important_variable = 5
+                <span style="color: red">boring_variable = 8</span>
+                return important_variable
+            </code>
+        </p>
+        <p>
+            If we had this function in our program, Pylint would give us an <code>unused-variable</code> error. Notice the variable we created highlighted in red, <code>boring_variable</code>. After defining it, we do not use it for the rest of the function. If that line was removed, this function would produce the same output, and have the same functionality to us. To fix this we should either find a way to use this variable, perhaps by altering the function's final line to <code>return important_variable + boring_variable</code>, or simply remove it.
+        </p>
+        <h3>Invalid Name</h3>
+        <p>
+            Pylint prefers we use the naming convention known as snake case when naming our variables, functions, etc. as opposed to other popular conventions like camel case. If you receive an <code>invalid-name</code> error from Pylint, one of your functions or variables is likely named in camel case. What's the difference? This is a variable named in camel case: <code>veryLongTestVariable</code>. This is a variable named in snake case: <code>very_long_test_variable</code>. Do you see how, thanks to the underscores present, the latter is a bit clearer and easier to read? This is especially true the longer a variable or function name is. This is why Pylint prefers snake case.
+        </p>
+        <h3>Unnecessary Else Statement</h3>
+        <p>
+            Consider the following function:
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+            def test_function(value_a, value_b):
+                """This is my docstring"""
+                if value_a == 0:
+                    return value_a
+                else:
+                    return value_a + value_b
+            </code>
+        </p>
+        <p>
+            This function takes two values as parameters, then checks to see if the first value is zero. If it is, the function returns that zero. If it isn't, the function adds the second value to the first and then returns that result. However, if we were to use this function in a program, Pylint would give us a <code>no-else-return</code> error.
+        </p>
+        <h1>Glossary of Object-Oriented Programming Terms</h1>
         <h2>Along Comes ARPA</h2>
         <p>
             ARPA, the Advanced Research Projects Agency, was created to take over research and development for the United States military.  The acronym title of ARPA was later changed to DARPA, when "Defense" was added to the beginning of the agency's name.  Before ARPA, each branch of the  military did their own separate research and development.  ARPA was created to centralize the research and development for all branches of the military.  With ARPA, the Army, Navy, Air Force, etc. could focus all of their efforts and manpower on actual combat endeavors.  It also allowed advancements to be uniform between the branches.  When the branches had compartmentalized research and development, if the Army developed a brand new, state-of-the-art bullet, it probably wouldn't be compatible with the weapons developed by the Navy.  ARPA also fixed that issue.  The first major project for ARPA, was the quest to resolve the telephone's fatal flaw inherit in the circuit-switching centers.

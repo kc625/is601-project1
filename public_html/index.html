@@ -86,13 +86,17 @@
         </p>
         <h3>Missing Docstring</h3>
         <p>
-            A missing docstring error could actually appear in a couple of forms. You may get this error pertaining to one of your classes with <code>missing-class-docstring</code> or possibly one of your functions with <code>missing-function-docstring</code>. Docstrings are important. They let someone else that has never seen your program before, quickly look at your code and get instant clues to what you are trying to accomplish. If you get a missing docstring error, add one where specified, like the following. The docstring is highlighted in green:
+            A missing docstring error could actually appear in a couple of forms. You may get this error pertaining to one of your classes with <code>missing-class-docstring</code> or possibly one of your functions with <code>missing-function-docstring</code>. Another missing docstring error you may encounter is the <code>missing-module-docstring</code> if you didn't add a docstring to the beginning of your file. Docstrings are important. They let someone else that has never seen your program before, quickly look at your code and get instant clues to what you are trying to accomplish. If you get a missing docstring error, add one where the error specifies, like the following. The docstrings are highlighted in green:
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-            def test_function():
-                <span style="color: green">"""This is my docstring"""</span>
-                return True
+        <span style="color: green">"""This is our base Calculation Class"""</span>
+        class Calculation:
+            <span style="color: green">"""Abstract base class used for all other calculations"""</span>
+
+            def __init__(self, values: tuple):
+                <span style="color: green">"""Constructor method"""</span>
+                self.values = Calculation.convert_args_to_tuple_of_floats(values)
             </code>
         <h3>Line Too Long</h3>
         <p>
@@ -104,36 +108,54 @@
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-            def test_function():
-                """This is my docstring"""
-                important_variable = 5
-                <span style="color: red">boring_variable = 8</span>
-                return important_variable
+        @staticmethod
+        def convert_args_to_tuple_of_floats(values):
+            """Standardizes values to a tuple of floats"""
+            list_values_float = []
+            <span style="color: red">unnecessary_list = []</span>
+            for item in values:
+                list_values_float.append(float(item))
+            return tuple(list_values_float)
             </code>
         </p>
         <p>
-            If we had this function in our program, Pylint would give us an <code>unused-variable</code> error. Notice the variable we created highlighted in red, <code>boring_variable</code>. After defining it, we do not use it for the rest of the function. If that line was removed, this function would produce the same output, and have the same functionality to us. To fix this we should either find a way to use this variable, perhaps by altering the function's final line to <code>return important_variable + boring_variable</code>, or simply remove it.
+            If we had this function in our program, Pylint would give us an <code>unused-variable</code> error. Notice the list variable we created that is highlighted in red, <code>unnecessary_list</code>. After defining it, we do not use it for the rest of the function. If that variable was removed, this function would produce the same output and have the same functionality to users. To resolve this error, we should remove the unused variable completely.
         </p>
         <h3>Invalid Name</h3>
         <p>
-            Pylint prefers we use the naming convention known as snake case when naming our variables, functions, etc. as opposed to other popular conventions like camel case. If you receive an <code>invalid-name</code> error from Pylint, one of your functions or variables is likely named in camel case. What's the difference? This is a variable named in camel case: <code>veryLongTestVariable</code>. This is a variable named in snake case: <code>very_long_test_variable</code>. Do you see how, thanks to the underscores present, the latter is a bit clearer and easier to read? This is especially true the longer a variable or function name is. This is why Pylint prefers snake case.
+            Pylint prefers we use the naming convention known as snake case when naming our variables, functions, etc. as opposed to other popular conventions like camel case. If you receive an <code>invalid-name</code> error from Pylint, one of your functions or variables is likely named in camel case. What's the difference? This is one of our functions named in camel case: <code>getLastCalculationResult()</code>. This is the same function named in snake case: <code>get_last_calculation_result()</code>. Do you see how, thanks to the underscores present, the latter is a bit clearer and easier to read? This is especially true the longer a variable or function name is. This is why Pylint prefers snake case.
         </p>
         <h3>Unnecessary Else Statement</h3>
         <p>
-            Consider the following function:
+            Consider the following function that is a part of our Division class:
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-            def test_function(value_a, value_b):
-                """This is my docstring"""
-                if value_a == 0:
-                    return value_a
+        def get_result(self):
+            """This does the actual division. Displays an error if dividing by 0"""
+            quotient = self.values[0]
+            for value in self.values[1:]
+                if value == 0.0:
+                    return "Error, cannot divide by zero."
                 else:
-                    return value_a + value_b
+                    quotient = quotient / value
+            return quotient
             </code>
         </p>
         <p>
-            This function takes two values as parameters, then checks to see if the first value is zero. If it is, the function returns that zero. If it isn't, the function adds the second value to the first and then returns that result. However, if we were to use this function in a program, Pylint would give us a <code>no-else-return</code> error.
+            This function takes a tuple of floats as a parameter and sets a variable equal to the first value of the tuple. It then loops through the rest of the values and checks to see if they are equivalent to 0. If the value is, it returns an error message. If it isn't, the function divides the first value by each consecutive value. However, if we use this function in a program, Pylint gives us a <code>no-else-return</code> error. What does this mean? Pylint is trying to tell us that the <code>else:</code> is actually unnecessary, as it is redundant. Should <code>if value == 0.0:</code> be evaluated as false, our program will move on to <code>quotient = quotient / value</code> regardless of whether the actual <code>else:</code> is present or not. So for the sake of brevity, we can cut that line out of our code, and the following, more streamlined version of the function would work exactly the same:
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+        def get_result(self):
+            """This does the actual division. Displays an error if dividing by 0"""
+            quotient = self.values[0]
+            for value in self.values[1:]
+                if value == 0.0:
+                    return "Error, cannot divide by zero."
+                quotient = quotient / value
+            return quotient
+            </code>
         </p>
         <h1>Glossary of Object-Oriented Programming Terms</h1>
         <h2>Along Comes ARPA</h2>

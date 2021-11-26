@@ -143,7 +143,7 @@
             </code>
         </p>
         <p>
-            This function takes a tuple of floats as a parameter and sets a variable equal to the first value of the tuple. It then loops through the rest of the values and checks to see if they are equivalent to 0. If the value is, it returns an error message. If it isn't, the function divides the first value by each consecutive value. However, if we use this function in a program, Pylint gives us a <code>no-else-return</code> error. What does this mean? Pylint is trying to tell us that the <code>else:</code> is actually unnecessary, as it is redundant. Should <code>if value == 0.0:</code> be evaluated as false, our program will move on to <code>quotient = quotient / value</code> regardless of whether the actual <code>else:</code> is present or not. So for the sake of brevity, we can cut that line out of our code, and the following, more streamlined version of the function would work exactly the same:
+            This function takes a tuple of floats as a parameter and sets a variable equal to the first value of the tuple. It then loops through the rest of the values and checks to see if they are equivalent to 0. If the value is, it returns an error message. If it isn't, the function divides the first value by each consecutive value. However, if we use this function in a program, Pylint gives us a <code>no-else-return</code> error. What does this mean? Pylint is trying to tell us that the <code>else</code> is actually unnecessary, as it is redundant. Should <code>if value == 0.0</code> be evaluated as false, our program will move on to <code>quotient = quotient / value</code> regardless of whether the actual <code>else</code> is present or not. So for the sake of brevity, we can cut that line out of our code, and the following, more streamlined version of the function would work exactly the same:
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
@@ -157,10 +157,84 @@
             return quotient
             </code>
         </p>
-        <h1>Glossary of Object-Oriented Programming Terms</h1>
-        <h2>Along Comes ARPA</h2>
+        <h3>Disabling Pylint Errors</h3>
         <p>
-            ARPA, the Advanced Research Projects Agency, was created to take over research and development for the United States military.  The acronym title of ARPA was later changed to DARPA, when "Defense" was added to the beginning of the agency's name.  Before ARPA, each branch of the  military did their own separate research and development.  ARPA was created to centralize the research and development for all branches of the military.  With ARPA, the Army, Navy, Air Force, etc. could focus all of their efforts and manpower on actual combat endeavors.  It also allowed advancements to be uniform between the branches.  When the branches had compartmentalized research and development, if the Army developed a brand new, state-of-the-art bullet, it probably wouldn't be compatible with the weapons developed by the Navy.  ARPA also fixed that issue.  The first major project for ARPA, was the quest to resolve the telephone's fatal flaw inherit in the circuit-switching centers.
+            Another important thing to know is how to disable an error that Pylint is giving you. This is something that should only be done sparingly, as most of the time Pylint's suggestions are very helpful for us. However, Pylint does not always know what is best. For example, when testing our Calculation class, we receive an error from Pylint stating <code>too-few-public-methods</code>. What this error means, is that Pylint feels our Calculation class does not have enough usable methods to make it worthwhile. It wants us to either add more methods to give the class more functionality, or find another way to accomplish the same as <code>Calculation</code> but without a class. But like I said, Pylint does not always know what is best, and we definitely want to use a class here. It also has all the functionality we need, so we don't have to add more methods to it. In this situation, we can disable the <code>too-few-public-methods</code> error that Pylint is giving us. To do so, we simply enter a comment with a specific wording that Pylint will recognize. We add it where Pylint is suggesting the error is occurring. In this case, that would be right after defining the class. It would look like the following, with our disable comment highlighted in green:
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+        class Calculation:
+            """Abstract Base Class used for the other calculations"""
+            <span style="color: green"># pylint: disable=too-few-public-methods</span>
+
+            ...
+            </code>
+        </p>
+        <hr>
+        <h1>Glossary of Python and Object-Oriented Programming Terms</h1>
+        <h2>Class</h2>
+        <p>
+            A template for creating user-defined objects. Like a blueprint to a house, where many houses (objects) can be made from the same blueprint (class).
+        </p>
+        <h2>Class Method</h2>
+        <p>
+            A method that is bound to the class and not to the object of the class. Takes a class parameter that points to the actual class and not the object instance. Can modify parts of the class (like a class variable) that would then apply to all instances of the class. Class methods are generally used to create factory methods.
+        </p>
+        <h2>Constructor</h2>
+        <p>
+            A special kind of method that Python calls when it instantiates an object. Can be used to initialize any instance variables the object will need. All classes must have a constructor.
+        </p>
+        <h2>Design Patterns Used</h2>
+        <p>
+            Design Patterns are a common way of solving well known problems. In terms of how they're used for Python, they represent the best ways to structure your code to achieve the desired outcome, particularly in regard to creating and defining classes, methods, objects, etc.
+        </p>
+        <h2>Facade</h2>
+        <p>
+            A structural design pattern that provides a simpler unified interface to a more complex system or framework. It provides an easier way to access methods of the underlying systems by providing a single entry point.
+        </p>
+        <h2>Factory</h2>
+        <p>
+            A creational design pattern that allows an interface or class to create an object but lets subclasses decide which class or object to instantiate. It allows objects to be created without exposing the logic to the user, and allows the user to use the same common interface each time.
+        </p>
+        <h2>Fixture</h2>
+        <p>
+            In testing, a fixture provides a defined and consistent context for each test. In Pytest, they are functions that we define for this purpose.
+        </p>
+        <h2>Instantiation</h2>
+        <p>
+            Creating a copy of a class which inherits all class variables and methods. This is done through the constructor method of the class, and the copy that is created is an object.
+        </p>
+        <h2>Method</h2>
+        <p>
+            A function that is defined within the body of a class. A method typically takes a class instance as its first parameter, passed as <code>self</code>.
+        </p>
+        <h2>Namespace</h2>
+        <p>
+            The unique place where an object is stored. This object might be a variable or a method.
+        </p>
+        <h2>Object</h2>
+        <p>
+            A collection of data (variables) and methods (functions) that act on that data. If a class is the blueprint for a house, an object is one of the houses built from that blueprint.
+        </p>
+        <h2>OOP</h2>
+        <p>
+            Acronym for "Object-Oriented Programming." OOP is a model of computer programming that organizes software design around data (objects) rather than functions or logic. Python is an OOP language.
+        </p>
+        <h2>Static Method</h2>
+        <p>
+            A method that is bound to the class and not to the object of the class. A static method cannot access or modify the state of a class, unlike a class method. Static methods are generally used to create utility functions for a class.
+        </p>
+        <h2>Type Cast</h2>
+        <p>
+            Type casting is the act of changing one data type into another. For example, converting an <code>int</code> into a <code>float</code>.
+        </p>
+        <h2>Type Hint</h2>
+        <p>
+            An annotation that specifies the expected type for a variable, a class attribute, or a function parameter. Type hints are optional and not enforced by Python but can be very useful.
+        </p>
+        <h2>Unit Test</h2>
+        <p>
+            A software testing method by which individual units of source code are put under various tests to determine whether they perform as intended. It is often the first level of software testing.
         </p>
     </article>
     <hr>

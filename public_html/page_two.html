@@ -123,77 +123,76 @@
         <p>
             The Calculation class takes a set of values and transforms them into a tuple of floats. Then an object of the Calculation class gets passed to the Addition class, which loops through the values in that tuple and adds them all together. Then we have an <code>add_numbers</code> method of our Calculator class, which takes a user input and passes it through all the way to Addition. Or at least, that's what we are expecting to happen! Let's build a test to find out if we are right.
         </p>
-        <h3>Line Too Long</h3>
         <p>
-            Pylint gives you a <code>line-too-long</code> error if any line of your code has greater than 100 characters in it. When we are coding, we should aim to accomplish our goal as succinctly as possible. This is true for total lines of code, as well as how long each line is. You are likely to see this error in reference to a line that contains a docstring. In that case, simply shorten the description within your docstring so that it is under the recommended 100-character limit. If it is referencing a line that contains actual code, perhaps consider alternate ways of achieving the same outcome. Preferably with more, but shorter, lines of code.
-        </p>
-        <h3>Unused Variable</h3>
-        <p>
-            Within the functions we create, we often have the ability to define and use variables. If we are not careful though, we may accidentally create variables that we do not actually use within the function. Consider the following block of code:
+            First, we'll define our test function. For Pylint to recognize it the name must begin with "test." We also want it to be easily understood which function we are testing, and since we are testing the static method from our Caclculator class called <code>add_numbers</code>, we'll define our test function in the following way:
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-                @staticmethod
-                def convert_args_to_tuple_of_floats(values):
-                """Standardizes values to a tuple of floats"""
-                list_values_float = []
-                <span style="color: red">unnecessary_list = []</span>
-                for item in values:
-                list_values_float.append(float(item))
-                return tuple(list_values_float)
+        def test_calculator_add_static():
             </code>
         </p>
         <p>
-            If we had this function in our program, Pylint would give us an <code>unused-variable</code> error. Notice the list variable we created that is highlighted in red, <code>unnecessary_list</code>. After defining it, we do not use it for the rest of the function. If that variable was removed, this function would produce the same output and have the same functionality to users. To resolve this error, we should remove the unused variable completely.
-        </p>
-        <h3>Invalid Name</h3>
-        <p>
-            Pylint prefers we use the naming convention known as snake case when naming our variables, functions, etc. as opposed to other popular conventions like camel case. If you receive an <code>invalid-name</code> error from Pylint, one of your functions or variables is likely named in camel case. What's the difference? This is one of our functions named in camel case: <code>getLastCalculationResult()</code>. This is the same function named in snake case: <code>get_last_calculation_result()</code>. Do you see how, thanks to the underscores present, the latter is a bit clearer and easier to read? This is especially true the longer a variable or function name is. This is why Pylint prefers snake case.
-        </p>
-        <h3>Unnecessary Else Statement</h3>
-        <p>
-            Consider the following function that is a part of our Division class:
+            We want to make sure our calculator's history is empty before beginning our test, as existing values in the history could give us unexpected results. To do that, we will create a fixture for pytest that will be passed into our test function. This fixture will call the <code>clear_history</code> method from the Calculator's Calculations to give us the blank history we wish to start with. This will give us the following:
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-                def get_result(self):
-                """This does the actual division. Displays an error if dividing by 0"""
-                quotient = self.values[0]
-                for value in self.values[1:]
-                if value == 0.0:
-                return "Error, cannot divide by zero."
-                else:
-                quotient = quotient / value
-                return quotient
-            </code>
-        </p>
-        <p>
-            This function takes a tuple of floats as a parameter and sets a variable equal to the first value of the tuple. It then loops through the rest of the values and checks to see if they are equivalent to 0. If the value is, it returns an error message. If it isn't, the function divides the first value by each consecutive value. However, if we use this function in a program, Pylint gives us a <code>no-else-return</code> error. What does this mean? Pylint is trying to tell us that the <code>else</code> is actually unnecessary, as it is redundant. Should <code>if value == 0.0</code> be evaluated as false, our program will move on to <code>quotient = quotient / value</code> regardless of whether the actual <code>else</code> is present or not. So for the sake of brevity, we can cut that line out of our code, and the following, more streamlined version of the function would work exactly the same:
-        </p>
-        <p>
-            <code style="display:block; white-space:pre-wrap">
-                def get_result(self):
-                """This does the actual division. Displays an error if dividing by 0"""
-                quotient = self.values[0]
-                for value in self.values[1:]
-                if value == 0.0:
-                return "Error, cannot divide by zero."
-                quotient = quotient / value
-                return quotient
-            </code>
-        </p>
-        <h3>Disabling Pylint Errors</h3>
-        <p>
-            Another important thing to know is how to disable an error that Pylint is giving you. This is something that should only be done sparingly, as most of the time Pylint's suggestions are very helpful for us. However, Pylint does not always know what is best. For example, when testing our Calculation class, we receive an error from Pylint stating <code>too-few-public-methods</code>. What this error means, is that Pylint feels our Calculation class does not have enough usable methods to make it worthwhile. It wants us to either add more methods to give the class more functionality, or find another way to accomplish the same as <code>Calculation</code> but without a class. But like I said, Pylint does not always know what is best, and we definitely want to use a class here. It also has all the functionality we need, so we don't have to add more methods to it. In this situation, we can disable the <code>too-few-public-methods</code> error that Pylint is giving us. To do so, we simply enter a comment with a specific wording that Pylint will recognize. We add it where Pylint is suggesting the error is occurring. In this case, that would be right after defining the class. It would look like the following, with our disable comment highlighted in green:
-        </p>
-        <p>
-            <code style="display:block; white-space:pre-wrap">
-                class Calculation:
-                """Abstract Base Class used for the other calculations"""
-                <span style="color: green"># pylint: disable=too-few-public-methods</span>
+        @pytest.fixture
+        def clear_history_fixture():
+            Calculations.clear_history()
 
-                ...
+        def test_calculator_add_static(clear_history_fixture):
             </code>
+        </p>
+        <p>
+            Now we will need to fill out the body of our test function, keeping AAA in mind. First, we Arrange by creating a tuple we are going to pass as a parameter.
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+        @pytest.fixture
+        def clear_history_fixture():
+            Calculations.clear_history()
+
+        def test_calculator_add_static(clear_history_fixture):
+            <span style="color: green">#Arrange</span>
+            my_tuple = (1.0, 3.0, 5.0)
+            </code>
+        </p>
+        <p>
+            Next, we Act by calling the Calculator's <code>add_numbers</code> method and passing it the tuple we just created.
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+        @pytest.fixture
+        def clear_history_fixture():
+            Calculations.clear_history()
+
+        def test_calculator_add_static(clear_history_fixture):
+            <span style="color: green">#Arrange</span>
+            my_tuple = (1.0, 3.0, 5.0)
+            <span style="color: green">#Act</span>
+            Calculator.add_numbers(my_tuple)
+            </code>
+        </p>
+        <p>
+            Finally, we Assert that our Addition is working as intended by getting the result to our last calculation and checking to see if it equals what we expect it to.
+        </p>
+        <p>
+            <code style="display:block; white-space:pre-wrap">
+        @pytest.fixture
+        def clear_history_fixture():
+            Calculations.clear_history()
+
+        def test_calculator_add_static(clear_history_fixture):
+            <span style="color: green">#Arrange</span>
+            my_tuple = (1.0, 3.0, 5.0)
+            <span style="color: green">#Act</span>
+            Calculator.add_numbers(my_tuple)
+            <span style="color: green">#Assert</span>
+            assert Calculator.get_last_result_value() == 9.0
+            </code>
+        </p>
+        <p>
+            This test passes, as <code>1.0 + 3.0 + 5.0</code> does in fact equal nine. Therefore we know our Addition class is working correctly! Now we can do the same with our Subtraction, Multiplication, and Division classes to ensure that they are also working as intended. As long was follow the Arrange-Act-Assert format for our tests, we know that we are following best practices and covering all of our testing bases.
         </p>
     </article>
     <hr>

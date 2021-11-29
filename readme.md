@@ -1,3 +1,5 @@
-# IS601 Project 1: History of the Internet
+# IS601 Project 2: Python Articles
 
-[History of the Internet](http://history818.eastus.azurecontainer.io)
+[Link to Project 2: Python Articles](http://history818.eastus.azurecontainer.io)
+
+[Link to Calculator Github Repo](https://github.com/kc625/calc2/tree/calc_refactor)

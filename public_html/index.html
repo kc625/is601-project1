@@ -90,13 +90,14 @@
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-        <span style="color: green">"""This is our base Calculation Class"""</span>
-        class Calculation:
-            <span style="color: green">"""Abstract base class used for all other calculations"""</span>
+    <span style="color: green">"""This is our base Calculation Class"""</span>
 
-            def __init__(self, values: tuple):
-                <span style="color: green">"""Constructor method"""</span>
-                self.values = Calculation.convert_args_to_tuple_of_floats(values)
+    class Calculation:
+        <span style="color: green">"""Abstract base class used for all other calculations"""</span>
+
+        def __init__(self, values: tuple):
+            <span style="color: green">"""Constructor method"""</span>
+            self.values = Calculation.convert_args_to_tuple_of_floats(values)
             </code>
         <h3>Line Too Long</h3>
         <p>
@@ -108,14 +109,14 @@
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-        @staticmethod
-        def convert_args_to_tuple_of_floats(values):
-            """Standardizes values to a tuple of floats"""
-            list_values_float = []
-            <span style="color: red">unnecessary_list = []</span>
-            for item in values:
-                list_values_float.append(float(item))
-            return tuple(list_values_float)
+    @staticmethod
+    def convert_args_to_tuple_of_floats(values):
+        """Standardizes values to a tuple of floats"""
+        list_values_float = []
+        <span style="color: red">unnecessary_list = []</span>
+        for item in values:
+            list_values_float.append(float(item))
+        return tuple(list_values_float)
             </code>
         </p>
         <p>
@@ -131,15 +132,15 @@
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-        def get_result(self):
-            """This does the actual division. Displays an error if dividing by 0"""
-            quotient = self.values[0]
-            for value in self.values[1:]
-                if value == 0.0:
-                    return "Error, cannot divide by zero."
-                else:
-                    quotient = quotient / value
-            return quotient
+    def get_result(self):
+        """This does the actual division. Displays an error if dividing by 0"""
+        quotient = self.values[0]
+        for value in self.values[1:]
+            if value == 0.0:
+                return "Error, cannot divide by zero."
+            else:
+                quotient = quotient / value
+        return quotient
             </code>
         </p>
         <p>
@@ -147,14 +148,14 @@
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-        def get_result(self):
-            """This does the actual division. Displays an error if dividing by 0"""
-            quotient = self.values[0]
-            for value in self.values[1:]
-                if value == 0.0:
-                    return "Error, cannot divide by zero."
-                quotient = quotient / value
-            return quotient
+    def get_result(self):
+        """This does the actual division. Displays an error if dividing by 0"""
+        quotient = self.values[0]
+        for value in self.values[1:]
+            if value == 0.0:
+                return "Error, cannot divide by zero."
+            quotient = quotient / value
+        return quotient
             </code>
         </p>
         <h3>Disabling Pylint Errors</h3>
@@ -163,11 +164,11 @@
         </p>
         <p>
             <code style="display:block; white-space:pre-wrap">
-        class Calculation:
-            """Abstract Base Class used for the other calculations"""
-            <span style="color: green"># pylint: disable=too-few-public-methods</span>
+    class Calculation:
+        """Abstract Base Class used for the other calculations"""
+        <span style="color: green"># pylint: disable=too-few-public-methods</span>
 
-            ...
+    ...
             </code>
         </p>
         <hr>
@@ -243,10 +244,10 @@
             <a href="https://commons.wikimedia.org/w/index.php?curid=70845534">"File:Fediverse logo proposal.svg"</a><span> by <a href="https://commons.wikimedia.org/wiki/User:Eukombos">Eukombos</a></span> is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en?ref=ccsearch&atype=html">CC0 1.0</a>
         </p>
         <p>
-            <a href="https://github.com/kc625/calc2/tree/calc_refactor">Link to GitHub Repository for the Calculator</a>
+            <a href="https://github.com/kc625/calc2">Link to GitHub Repository for this Project</a>
         </p>
         <p>
-            <a href="https://github.com/kc625/is601-project1/tree/Project_2">Link to GitHub Repository for these Articles</a>
+            <a href="https://github.com/kc625/is601-project1/tree/Project_2">Link to GitHub Repository which contains the incremental commits of this project</a>
         </p>
         <img src="images/w3c.png" alt="W3C Validated"/>
     </footer>
